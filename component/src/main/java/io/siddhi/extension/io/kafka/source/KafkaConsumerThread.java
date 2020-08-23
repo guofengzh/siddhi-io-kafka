@@ -31,8 +31,8 @@ import org.apache.kafka.common.KafkaException;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.log4j.Logger;
 
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
+//import java.nio.ByteBuffer;
+//import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -227,11 +227,14 @@ public class KafkaConsumerThread implements Runnable {
                             sourceEventListener.onEvent(event, trpProperties, transportSyncPropertiesArr);
                         } else {
                             if (isBinaryMessage) {
+                               /*
                                 byte[] byteEvents = (byte[]) event;
                                 int stringSize = ByteBuffer.wrap(byteEvents).getInt();
                                 header = new String(byteEvents, 4, stringSize - 1, Charset.defaultCharset());
                                 eventBody = Arrays.copyOfRange(byteEvents, stringSize + 4,
                                         byteEvents.length);
+                             */
+                                eventBody = event;
                             } else {
                                 String stringEvent = event.toString();
                                 int headerStartingIndex = stringEvent.indexOf(KafkaSink.SEQ_NO_HEADER_DELIMITER);

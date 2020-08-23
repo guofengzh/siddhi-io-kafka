@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 
 /**
- * The source Synchronize to merge events from two kafka source
+ * The source Synchronize to merge events from two kafka source.
  */
 public class SourceSynchronizer {
     private static final Logger LOG = Logger.getLogger(SourceSynchronizer.class);

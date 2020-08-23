@@ -22,6 +22,10 @@ package io.siddhi.extension.io.kafka;
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.spi.LoggingEvent;
 
+/**
+ * Dummy.
+ */
+
 public class UnitTestAppender extends AppenderSkeleton {
     private String messages;
 

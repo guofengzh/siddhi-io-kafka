@@ -1,0 +1,24 @@
+@App:name("kafka-src")
+
+@App:description("Description of the plan")
+
+-- Please refer to https://siddhi.io/en/v5.1/docs/quick-start/ on getting started with Siddhi editor. 
+
+@source(type='kafka',
+        topic.list='test',
+        partition.no.list='0',
+        threading.option='single.thread',
+        group.id='group',
+        bootstrap.servers='localhost:9092',
+        is.binary.message='true',
+        @map(type='protobuf', class='com.sitewhere.grpc.model.DeviceEventModel$GEnrichedEventPayload',
+             @attributes(name = 'event.measurement.name', value = 'event.measurement.value')))
+define stream SweetProductionStream(name string, value double);
+
+@sink(type='log')
+define stream LowProductionAlertStream(name string, amount double);
+
+@info(name='outputQuery')
+from SweetProductionStream
+select *
+insert into LowProductionAlertStream;

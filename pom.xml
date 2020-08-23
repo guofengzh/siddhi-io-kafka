@@ -58,6 +58,7 @@
         <text.mapper.version>2.0.5</text.mapper.version>
         <binary.mapper.version>2.0.5</binary.mapper.version>
         <jacoco.version>0.7.9</jacoco.version>
+        <com.google.protobuf.java.version>3.9.1</com.google.protobuf.java.version>
 
         <mavan.findbugsplugin.exclude.file>findbugs-exclude.xml</mavan.findbugsplugin.exclude.file>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -126,6 +127,11 @@
                 <groupId>org.apache.kafka</groupId>
                 <artifactId>kafka_2.11</artifactId>
                 <version>${kafka_2.11.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${com.google.protobuf.java.version}</version>
             </dependency>
 
             <!-- Testing purposes -->
